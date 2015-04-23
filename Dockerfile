@@ -1,6 +1,6 @@
 FROM stackbrew/ubuntu:14.04
 
-MAINTAINER Dale-Kurt Murray "dalekurt.murray@gmail.com"
+MAINTAINER jmarsh.ext "jmarsh.ext@aviatainc.com"
 
 ENV KAFKA_VERSION="0.8.2.1" SCALA_VERSION="2.10"
 

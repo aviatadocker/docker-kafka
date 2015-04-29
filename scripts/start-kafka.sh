@@ -43,4 +43,17 @@ if [[ -n $KAFKA_CREATE_TOPICS ]]; then
     done
 fi
 
+sed -i 's/zk.connect=/zk.connect=zookeeper:2181/g' $KAFKA_HOME/config/server.properties
+sed -i 's/zk.connect=localhost:2181/zk.connect=zookeeper:2181/g' $KAFKA_HOME/config/server.properties
+sed -i 's/zookeeper.connect=/zookeeper.connect=zookeeper:2181/g' $KAFKA_HOME/config/server.properties
+sed -i 's/zookeeper.connect=localhost:2181/zookeeper.connect=zookeeper:2181/g' $KAFKA_HOME/config/server.properties
+
+sed -i 's/zk.connect=/zk.connect=zookeeper:2181/g' $KAFKA_HOME/config/consumer.properties
+sed -i 's/zk.connect=localhost:2181/zk.connect=zookeeper:2181/g' $KAFKA_HOME/config/consumer.properties
+sed -i 's/zk.connect=127.0.0.1:2181/zk.connect=zookeeper:2181/g' $KAFKA_HOME/config/consumer.properties
+sed -i 's/zookeeper.connect=/zookeeper.connect=zookeeper:2181/g' $KAFKA_HOME/config/consumer.properties
+sed -i 's/zookeeper.connect=localhost:2181/zookeeper.connect=zookeeper:2181/g' $KAFKA_HOME/config/consumer.properties
+sed -i 's/zookeeper.connect=127.0.0.1:2181/zookeeper.connect=zookeeper:2181/g' $KAFKA_HOME/config/consumer.properties
+
+
 wait $KAFKA_SERVER_PID

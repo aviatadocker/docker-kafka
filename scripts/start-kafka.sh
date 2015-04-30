@@ -18,7 +18,7 @@ if [[ -n "$KAFKA_HEAP_OPTS" ]]; then
     unset KAFKA_HEAP_OPTS
 fi
 
-: <<'end_long_comment'
+<<'MULTI_LINE_COMMENT_DELIMITER'
 for VAR in `env`
 do
   if [[ $VAR =~ ^KAFKA_ && ! $VAR =~ ^KAFKA_HOME ]]; then
@@ -31,7 +31,6 @@ do
     fi
   fi
 done
-end_long_comment
 
 sed -i 's/zk.connect=/zk.connect=zookeeper:2181/g' $KAFKA_HOME/config/server.properties
 sed -i 's/zk.connect=localhost:2181/zk.connect=zookeeper:2181/g' $KAFKA_HOME/config/server.properties
@@ -44,6 +43,8 @@ sed -i 's/zk.connect=127.0.0.1:2181/zk.connect=zookeeper:2181/g' $KAFKA_HOME/con
 sed -i 's/zookeeper.connect=/zookeeper.connect=zookeeper:2181/g' $KAFKA_HOME/config/consumer.properties
 sed -i 's/zookeeper.connect=localhost:2181/zookeeper.connect=zookeeper:2181/g' $KAFKA_HOME/config/consumer.properties
 sed -i 's/zookeeper.connect=127.0.0.1:2181/zookeeper.connect=zookeeper:2181/g' $KAFKA_HOME/config/consumer.properties
+
+MULTI_LINE_COMMENT_DELIMITER
 
 
 $KAFKA_HOME/bin/kafka-server-start.sh $KAFKA_HOME/config/server.properties &

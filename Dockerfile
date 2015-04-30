@@ -15,8 +15,5 @@ VOLUME ["/kafka"]
 ENV KAFKA_HOME /opt/kafka_${SCALA_VERSION}-${KAFKA_VERSION}
 ADD scripts/start-kafka.sh /usr/bin/start-kafka.sh
 ADD scripts/broker-list.sh /usr/bin/broker-list.sh
-#COPY resources/server.properties /opt/kafka_${SCALA_VERSION}-${KAFKA_VERSION}/config/
 COPY resources/server.properties /opt/kafka_${SCALA_VERSION}-${KAFKA_VERSION}/config/server.properties
-#COPY resources/server.properties /opt/kafka_${SCALA_VERSION}-${KAFKA_VERSION}/config/test1.properties
-#COPY resources/server.properties /opt/test2.properties
 CMD start-kafka.sh

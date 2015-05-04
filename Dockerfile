@@ -17,6 +17,7 @@ COPY scripts/start-kafka.sh /usr/bin/start-kafka.sh
 COPY scripts/broker-list.sh /usr/bin/broker-list.sh
 COPY scripts/create-topic-start-kafka.sh /usr/bin/create-topic-start-kafka.sh
 RUN chmod +x /usr/bin/create-topic-start-kafka.sh
+RUN PATH=$PATH:/usr/bin
 COPY resources/server.properties /opt/kafka_${SCALA_VERSION}-${KAFKA_VERSION}/config/server.properties
 COPY resources/consumer.properties /opt/kafka_${SCALA_VERSION}-${KAFKA_VERSION}/config/consumer.properties
 
